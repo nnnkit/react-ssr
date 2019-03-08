@@ -1,21 +1,22 @@
 import React from "react";
 import Home from "./pages/Home";
 import Users, { loadData } from "./pages/Users";
-import App from "./components/Header";
+import App from "./components/App";
 
 export default [
-  // {
-  //   ...App,
-  //   routes: [
   {
-    ...Home,
+    ...App,
     path: "/",
-    exact: true
-  },
-  {
-    ...Users,
-    path: "/users"
+    routes: [
+      {
+        ...Home,
+        path: "/",
+        exact: true
+      },
+      {
+        ...Users,
+        path: "/users"
+      }
+    ]
   }
-  //   ]
-  // }
 ];
