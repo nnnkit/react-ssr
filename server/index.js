@@ -14,7 +14,12 @@ app.get("*", (req, res) => {
     return route.loadData ? route.loadData(store) : Promise.resolve(null);
   });
   Promise.all(promises).then(() => {
-    res.send(renderer(req.path, store));
+    const context = {};
+    const content = renderer(req.path, store, context);
+    if (context.notFound) {
+      res.status(404);
+    }
+    res.send(content);
   });
 });
 

@@ -2,6 +2,7 @@ import React from "react";
 import Home from "./pages/Home";
 import Users, { loadData } from "./pages/Users";
 import App from "./components/App";
+import PageNotFound from "./components/PageNotFound";
 
 export default [
   {
@@ -15,7 +16,11 @@ export default [
       },
       {
         ...Users,
-        path: "/users"
+        path: "/users",
+        exact: true
+      },
+      {
+        ...PageNotFound
       }
     ]
   }
