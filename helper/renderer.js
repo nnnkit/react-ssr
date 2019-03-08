@@ -17,6 +17,9 @@ export const renderer = (path, store) => {
   <html>
     <body>
       <div id="root">${jsx}</div>
+      <script>
+        window.INITIAL_STATE = ${JSON.stringify(store.getState())}
+      </script>
       <script src="client.bundle.js"></script>
     </body>
   <html>
