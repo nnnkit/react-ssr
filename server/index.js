@@ -11,7 +11,7 @@ app.use(express.static("dist"));
 app.get("*", (req, res) => {
   const store = createStore(user, applyMiddleware(thunk));
   const promises = matchRoutes(Routes, req.path).map(({ route }) => {
-    return route.loadData ? route.loadData(store) : null;
+    return route.loadData ? route.loadData(store) : Promise.resolve(null);
   });
   Promise.all(promises).then(() => {
     res.send(renderer(req.path, store));

@@ -1,8 +1,14 @@
 import React, { Component } from "react";
+import Header from "../components/Header";
 
 class Home extends Component {
   render() {
-    return <div onClick={() => console.log("Clicked")}>Hello World</div>;
+    return (
+      <div>
+        Hello World
+        <Header />
+      </div>
+    );
   }
 }
 

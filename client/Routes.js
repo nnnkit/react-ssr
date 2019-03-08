@@ -1,9 +1,12 @@
-import { Route } from "react-router-dom";
 import React from "react";
 import Home from "./pages/Home";
 import Users, { loadData } from "./pages/Users";
+import App from "./components/Header";
 
 export default [
+  // {
+  //   ...App,
+  //   routes: [
   {
     ...Home,
     path: "/",
@@ -13,4 +16,6 @@ export default [
     ...Users,
     path: "/users"
   }
+  //   ]
+  // }
 ];
